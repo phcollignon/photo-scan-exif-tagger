@@ -1,69 +1,58 @@
-
-
 # Photo Scan Exif Tagger
 
 A simple Python UI application designed to **batch-add** "Date Taken" and "GPS Location" EXIF tags to old photos, such as scanned images, and copy them into an existing album structure.
 
 This tool is perfect for integrating scanned family photos into modern photo management software like **Digikam**.
 
-
 ![Photo Tagger App Screenshot](./photo-importer.jpg)
 
 ## Features
 
-  * **Process Photos in Batches:** Apply a single date and location to an entire folder of photos at once (e.g., a full roll of film or a set of scans from one event).
-  * Select a source directory (of your scanned photos) and a target "Albums" directory.
-  * Automatically lists all sub-folders in your "Albums" directory as a dropdown.
-  * Select a "Date Taken" using a calendar with a fast "Quick Year Select" dropdown (1900-Present).
-  * Select a GPS location by searching for a city name or by right-clicking on an OpenStreetMap.
-  * Batch processes all `.jpg` or `.jpeg` files in the source directory.
-  * Writes the selected date to the **EXIF `DateTimeOriginal`** (Date Taken) and **`DateTimeDigitized`** tags.
-  * Writes the selected location to the **EXIF GPS** tags (if a location is set).
-  * Copies the newly tagged photos into the selected album folder, leaving your original scans untouched.
+* **Process Photos in Batches:** Apply a single date and location to an entire folder of photos at once (e.g., a full roll of film or a set of scans from one event).
+* Select a source directory (of your scanned photos) and a target "Albums" directory.
+* Automatically lists all sub-folders in your "Albums" directory as a dropdown.
+* Select a "Date Taken" using a calendar with a fast "Quick Year Select" dropdown (1900-Present).
+* Select a GPS location by searching for a city name or by right-clicking on an OpenStreetMap.
+* Writes the selected date to the **EXIF `DateTimeOriginal`** (Date Taken) and **`DateTimeDigitized`** tags.
+* Writes the selected location to the **EXIF GPS** tags (if a location is set).
+* Copies the newly tagged photos into the selected album folder, leaving your original scans untouched.
+* **Optionally move processed source files** to an "archive" folder to clean up your "scans" directory.
 
------
+---
 
 ## Installation
 
 1.  **Get Python:** Make sure you have Python installed on your system. You can download it from [python.org](https://python.org).
-
 2.  **Get the Script:** Save the Python script (e.g., `photo_importer.py`) to a folder on your computer.
-
 3.  **Install Libraries:** Open a terminal or command prompt and install the required libraries using `pip`:
 
     ```bash
     pip install customtkinter tkcalendar tkintermapview pillow piexif
     ```
 
------
+---
 
 ## How to Use
 
 1.  Run the script from your terminal:
 
     ```bash
-    python tagger.py
+    python photo_importer.py
     ```
 
 2.  **Source Directory:** Browse to the folder containing your scanned `.jpg` photos.
-
 3.  **Albums Directory:** Browse to the **parent** folder that contains all your albums (e.g., `D:\My Pictures\Albums`).
-
 4.  **Album:** Select the destination album from the dropdown. This folder **must already exist** inside your "Albums Directory".
-
-      * Click **Refresh ↻** if you create a new album folder while the app is open.
-
+    * Click **Refresh ↻** if you create a new album folder while the app is open.
 5.  **Date:** Select the "Date Taken" for the photos using the calendar or the "Quick Year Select" dropdown.
-
 6.  **Location:**
+    * Type a city name (e.g., "Paris") and click **Search**. The map will center and set a marker.
+    * *Alternatively*, right-click anywhere on the map to set a precise location.
+    * Click **Clear Location** if you do not want to add GPS tags.
+7.  **(Optional) Archive Files:** Check the "Move processed source files to:" box and browse to a folder where you want your *original scans* to be moved after they are tagged and copied.
+8.  **Start Import:** Click the large "Tag & Copy Photos" button. The app will process **all photos in the source folder as a single batch**, adding the selected date/location, copying them, and then moving the originals (if selected).
 
-      * Type a city name (e.g., "Paris") and click **Search**. The map will center and set a marker.
-      * *Alternatively*, right-click anywhere on the map to set a precise location.
-      * Click **Clear Location** if you do not want to add GPS tags.
-
-7.  **Start Import:** Click the large "Start Import" button. The app will process **all photos in the source folder as a single batch**, adding the selected date and location to every file before copying them to the destination album.
-
------
+---
 
 ## Using with Digikam (or other Photo Managers)
 
@@ -77,7 +66,7 @@ This tool is designed to work perfectly with any photo management software that 
 
 Digikam will read the newly copied files and automatically detect the **Date Taken** and **GPS Location** from the EXIF tags you just added. Your old scans will now appear correctly on Digikam's timeline and map views.
 
------
+---
 
 ## Troubleshooting
 
