@@ -1,8 +1,8 @@
 # Photo Scan Exif Tagger
 
-A simple Python UI application designed to **batch-add** "Date Taken" and "GPS Location" EXIF tags to old photos, such as scanned images, and copy them into an existing album structure.
+A simple Python UI application designed to **batch-add** "Date" and "GPS Location" EXIF tags to old photos, such as scanned images, and copy them into an existing album structure.
 
-This tool is perfect for integrating scanned family photos into modern photo management software like **Digikam**.
+This tool is perfect for integrating scanned family photos into photo management software like **Digikam**.
 
 ![Photo Tagger App Screenshot](./photo-importer.jpg)
 
